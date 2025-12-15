@@ -1,0 +1,25 @@
+Scenario: An E-commerce or "Food Delivery" checkout system. Why this is Strong Middle: In a monolith, you use a database transaction (BEGIN...COMMIT) to ensure an Order is saved and Inventory is deducted together. In microservices, the Order DB and Inventory DB are separate. If the Payment succeeds but the Inventory update fails, you have a major bug. You must implement the Saga Pattern.
+
+The Architecture:
+
+Order Service: Accepts the checkout request.
+
+Payment Service: Charge the user's card (simulated).
+
+Inventory Service: Reserves items.
+
+Orchestrator: A central state machine (or use choreography with events).
+
+The Challenge:
+
+Compensation Logic: If the Payment succeeds but Inventory is out of stock, the system must automatically trigger a "Refund" action in the Payment Service to roll back the state.
+
+Idempotency: What if the Payment Service receives the "Charge" message twice? It must not charge the user twice.
+
+Tech Stack:
+
+Node.js (NestJS or Express)
+
+Message Broker: RabbitMQ or Kafka (Crucial for async communication)
+
+Database: Postgres

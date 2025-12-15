@@ -1,0 +1,38 @@
+
+> inventory-service@0.0.1 build C:\Users\Metthew\Desktop\work\Projects for CV\nodejs\The\apps\inventory-service
+> nest build
+
+src/inventory/inventory.repository.ts:131:34 - error TS2345: Argument of type '{ id: string; orderId: string; productId: string; quantity: number; status: string; expiresAt: Date | null; }' is not assignable to parameter of type 'never'.
+
+131         createdReservations.push(reservation);
+                                     ~~~~~~~~~~~
+src/inventory/inventory.service.ts:58:23 - error TS2339: Property 'id' does not exist on type 'never'.
+
+58       id: reservation.id,
+                         ~~
+src/inventory/inventory.service.ts:59:28 - error TS2339: Property 'orderId' does not exist on type 'never'.
+
+59       orderId: reservation.orderId,
+                              ~~~~~~~
+Found 7 error(s).
+
+src/inventory/inventory.service.ts:60:30 - error TS2339: Property 'productId' does not exist on type 'never'.
+
+60       productId: reservation.productId,
+                                ~~~~~~~~~
+src/inventory/inventory.service.ts:61:29 - error TS2339: Property 'quantity' does not exist on type 'never'.
+
+61       quantity: reservation.quantity,
+                               ~~~~~~~~
+src/inventory/inventory.service.ts:62:27 - error TS2339: Property 'status' does not exist on type 'never'.
+
+62       status: reservation.status as ReservationStatus,
+                             ~~~~~~
+src/inventory/inventory.service.ts:63:30 - error TS2339: Property 'expiresAt' does not exist on type 'never'.
+
+63       expiresAt: reservation.expiresAt?.toISOString(),
+                                ~~~~~~~~~
+
+C:\Users\Metthew\Desktop\work\Projects for CV\nodejs\The\apps\inventory-service:
+ΓÇëERR_PNPM_RECURSIVE_RUN_FIRST_FAILΓÇë inventory-service@0.0.1 build: `nest build`
+Exit status 1

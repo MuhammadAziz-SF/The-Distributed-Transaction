@@ -1,0 +1,4 @@
+
+> inventory-service@0.0.1 build C:\Users\Metthew\Desktop\work\Projects for CV\nodejs\The\apps\inventory-service
+> nest build
+
